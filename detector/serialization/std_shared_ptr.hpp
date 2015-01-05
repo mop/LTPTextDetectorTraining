@@ -21,9 +21,10 @@
 
 #include <boost/serialization/shared_ptr.hpp>
 #include <boost/unordered_map.hpp>
+#include <boost/version.hpp>
 #include <memory>
 
-#ifdef BOOST_NO_CXX11_SMART_PTR
+#if (BOOST_VERSION / 100) % 1000 <= 55
 namespace boost {
 namespace serialization {
 
@@ -78,7 +79,7 @@ inline void serialize(
 }
 } // boost::serialization
 } // boost
-#endif // idfdef BOOST_NO_CXX11_SMART_PTR
+#endif // if BOOST_VERSION
 
 
 #endif /* end of include guard: SERIALIZATION_STD_SHARED_PTR_H */
